@@ -42,18 +42,6 @@
   user-select: none;
 }
 
-.stately li.current {
-  color:  #2ba6cb;
-}
-
-.stately li.right {
-  color:  #66CA66;
-}
-
-.stately li.wrong {
-  color: #CC4A4A;
-}
-
 .stately {
   padding: 20px;
   border-top: 1px solid #dddddd;
