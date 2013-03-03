@@ -39,9 +39,9 @@ require([
 
   stateChecker = on(box, "keyup", function(e) {
     clearTimeout(hint);
-    // console.log("box key up: ", e, e.value, this.value);
+    // console.log("comparing: ", currentState, this.value);
     // check the answer
-    if ( this.value.toLowerCase() === currentState ) {
+    if ( this.value.toLowerCase() === currentState.toLowerCase() ) {
       meta.innerHTML = "YEP.";
       // correct answer, make the state green
       domStyle.set(state, "color", "#66CA66");
@@ -61,13 +61,13 @@ require([
       meta.innerHTML = "";
       return;
     }
-    if ( this.value.length >= 2 ) {
+    if ( this.value.length === currentState.length ) {
       meta.innerHTML = "Nope.";
       return;
     }
   });
 
   hint = setTimeout(function() {
-    meta.innerHTML = "Hey! Let's go! Type \"" + currentState.toUpperCase() + "\" in the box.<br><br>" + meta.innerHTML;
+    meta.innerHTML = "Hey! Let's go! Type \"" + currentState + "\" in the box.<br><br>" + meta.innerHTML;
   }, 5000)
 });
